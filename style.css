@@ -5,11 +5,12 @@
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #1a1a1a;
   background-image: url("https://www.transparenttextures.com/patterns/paper.png");
   color: #1a1a1a;
   font-family: 'Nunito', sans-serif;
   line-height: 1.7;
+  animation: fadeIn 0.8s ease;
 }
 
 nav {
@@ -17,12 +18,12 @@ nav {
   justify-content: center;
   gap: 2rem;
   padding: 1.2rem 2rem;
-  border-bottom: 2px solid #D4E4F0;
+  border-bottom: 2px solid #333;
 }
 
 nav a {
   font-size: 0.9rem;
-  color: #2C3E6B;
+  color: #F5F0E8;
   text-decoration: none;
   letter-spacing: 0.05em;
   font-weight: 600;
@@ -33,12 +34,22 @@ nav a:hover {
 }
 
 #hero {
+  background-color: #F5F0E8;
+  background-image: 
+    linear-gradient(#C5B8A8 1px, transparent 1px),
+    linear-gradient(90deg, #C5B8A8 1px, transparent 1px);
+  background-size: 28px 28px;
+  max-width: 750px;
+  margin: 3rem auto;
+  border-radius: 12px;
+  padding: 5rem 3rem 4rem;
   text-align: center;
-  padding: 5rem 2rem 3rem;
-  position: relative;
+  border: 3px solid #E75D5D;
+  box-shadow: 8px 8px 0px #E75D5D;
 }
 
 #hero h1 {
+  font-family: 'Caveat', cursive;
   font-size: clamp(2rem, 7.5vw, 4.5rem);
   font-weight: 700;
   color: #E75D5D;
@@ -61,6 +72,22 @@ p strong{
   font-weight: 600;
 }
 
+.about-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.about-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #E75D5D;
+  transform: rotate(-2deg);
+  flex-shrink: 0;
+}
+
 section {
   max-width: 800px;
   margin: 0 auto;
@@ -71,7 +98,7 @@ section {
 h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #2C3E6B;
+  color: #F5A623;
   margin-bottom: 1.5rem;
   display: inline-block;
   border-bottom: 3px solid #E7B11B;
@@ -79,35 +106,30 @@ h2 {
 }
 
 p {
-  color: #4A5568;
+  color: #FFFFFF;
   margin-bottom: 1rem;
 }
 
 .exp-item h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #2C3E6B;
+  color: #1a1a1a;
   margin-bottom: 0.2rem;
 }
 
-.org {
-  color: #4BA14A;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 0.2rem;
-}
-
-.date {
-  color: #9AA5B4;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+.exp-item p {
+  color: #4A5568;
 }
 
 .project-item h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #2C3E6B;
+  color: #1a1a1a;
   margin-bottom: 0.2rem;
+}
+
+.project-item p {
+  color: #4A5568;
 }
 
 .project-title {
@@ -116,13 +138,14 @@ p {
 }
 
 .tech {
-  color: #999;
+  color: #9AA5B4;
   font-size: 0.9rem;
   font-weight: 600;
   font-style: italic;
 }
 
 .project-item a {
+  transform: rotate(-1deg);
   display: inline-block;
   margin-top: 0.5rem;
   color: #2C3E6B;
@@ -140,17 +163,18 @@ p {
   background: #FFFFFF;
   border-radius: 16px;
   padding: 1.5rem;
-  border: 2px solid #95B64E;
+  border: 2px solid #E75D5D;
 }
 
 .project-item {
+  transform: rotate(-1deg);
   margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
   border-radius: 16px;
   padding: 1.5rem;
-  border: 2px solid #95B64E;
+  border: 2px solid #E75D5D;
 }
 
 .exp-item, .project-item {
@@ -160,10 +184,6 @@ p {
 .exp-item:hover, .project-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(44, 62, 107, 0.1);
-}
-
-body {
-  animation: fadeIn 0.8s ease;
 }
 
 @keyframes fadeIn {
@@ -256,7 +276,7 @@ body {
 
 .contact-link {
   display: inline-block;
-  color: #2C3E6B;
+  color: #F5F0E8;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
@@ -265,4 +285,11 @@ body {
 
 .contact-link:hover {
   color: #E75D5D;
+}
+
+.org {
+  color: #E75D5D;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
 }
