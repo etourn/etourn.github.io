@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: #1a1a1a;
-  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
-  color: #1a1a1a;
+  background-color: #0F0F1A;
+  /* background-image: url("https://www.transparenttextures.com/patterns/paper.png"); */
+  color: #2C1A0E;
   font-family: 'Nunito', sans-serif;
   line-height: 1.7;
   animation: fadeIn 0.8s ease;
@@ -30,36 +30,43 @@ nav a {
 }
 
 nav a:hover {
-  color: #E75D5D;
+  color: #7B8CDE;
 }
 
 #hero {
   background-color: #F5F0E8;
   background-image: 
-    linear-gradient(#C5B8A8 1px, transparent 1px),
-    linear-gradient(90deg, #C5B8A8 1px, transparent 1px);
+    linear-gradient(#C5BAE8 1px, transparent 1px),
+    linear-gradient(90deg, #C5BAE8 1px, transparent 1px);
   background-size: 28px 28px;
   max-width: 750px;
   margin: 3rem auto;
   border-radius: 12px;
   padding: 5rem 3rem 4rem;
-  text-align: center;
-  border: 3px solid #E75D5D;
-  box-shadow: 8px 8px 0px #E75D5D;
+  text-align: left;
+  border: 3px solid #7B8CDE;
+  box-shadow: 8px 8px 0px #7B8CDE;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 2rem;
 }
 
 #hero h1 {
   font-family: 'Caveat', cursive;
   font-size: clamp(2rem, 7.5vw, 4.5rem);
   font-weight: 700;
-  color: #E75D5D;
+  color: #7B8CDE;
   margin-bottom: 1rem;
   min-height: 1.2em;
 }
 
 #hero p {
   font-size: 1rem;
-  color: #2E98AE;
+  color: #3D3D5C;
   font-weight: 500;
   letter-spacing: 0.08em;
 }
@@ -83,13 +90,13 @@ p strong{
   height: 160px;
   object-fit: cover;
   border-radius: 12px;
-  border: 3px solid #E75D5D;
+  border: 3px solid #7B8CDE;
   transform: rotate(-2deg);
   flex-shrink: 0;
 }
 
 section {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
   border-bottom: 2px solid #D4E4F0;
@@ -98,10 +105,10 @@ section {
 h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #F5A623;
+  color: #7B8CDE;
   margin-bottom: 1.5rem;
   display: inline-block;
-  border-bottom: 3px solid #E7B11B;
+  border-bottom: 3px solid #7B8CDE;
   padding-bottom: 0.3rem;
 }
 
@@ -155,7 +162,7 @@ p {
 }
 
 .project-item a:hover {
-  color: #E8553E;
+  color: #7B8CDE;
 }
 
 .exp-item {
@@ -163,7 +170,7 @@ p {
   background: #FFFFFF;
   border-radius: 16px;
   padding: 1.5rem;
-  border: 2px solid #E75D5D;
+  border: 2px solid #7B8CDE;
 }
 
 .project-item {
@@ -174,7 +181,7 @@ p {
   background: #FFFFFF;
   border-radius: 16px;
   padding: 1.5rem;
-  border: 2px solid #E75D5D;
+  border: 2px solid #7B8CDE;
 }
 
 .exp-item, .project-item {
@@ -200,10 +207,10 @@ p {
 
 .btn-primary {
   background: rgba(231, 93, 93, 0.15);
-  color: #E75D5D;
+  color: #7B8CDE;
   padding: 0.9rem 2rem;
   border-radius: 100px;
-  border: 2px solid #E75D5D;
+  border: 2px solid #7B8CDE;
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
@@ -218,10 +225,10 @@ p {
 
 .btn-secondary {
   background: rgba(44, 62, 107, 0.1);
-  color: #2C3E6B;
+  color: #7B8CDE;
   padding: 0.9rem 2rem;
   border-radius: 100px;
-  border: 2px solid #2C3E6B;
+  border: 2px solid #7B8CDE;
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
@@ -254,7 +261,7 @@ p {
 
 .tag {
   background: #FFFFFF;
-  border: 2px solid #E75D5D;
+  border: 2px solid #7B8CDE;
   color: #2C3E6B;
   padding: 0.4rem 1rem;
   border-radius: 100px;
@@ -284,12 +291,20 @@ p {
 }
 
 .contact-link:hover {
-  color: #E75D5D;
+  color: #7B8CDE;
 }
 
 .org {
-  color: #E75D5D;
+  color: #7B8CDE;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
+}
+
+.star {
+  color: #7B8CDE;
+  font-size: 1rem;
+  letter-spacing: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
 }
