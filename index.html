@@ -5,33 +5,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ET — CS & Economics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.5' fill='%23F4B63F' stroke='%231E2A5E' stroke-width='3'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Caveat:wght@500&family=Instrument+Sans:wght@400;500;600&family=Kantumruy+Pro:wght@500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <header class="site-top">
+      <nav class="topnav" aria-label="Primary">
+        <a class="brand" href="#hero">
+          <span class="brand-badge" aria-hidden="true">ET</span>
+          <span class="brand-name">engtieng</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <!-- TODO: add a #play section, then this link will land on it -->
+          <li><a href="#play">Play</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="pill pill--outline skim-toggle" aria-pressed="false" aria-controls="hero">Skim mode</button>
+          <!-- TODO: add the résumé PDF at this path (no résumé in the repo yet) -->
+          <a class="pill pill--ink" href="assets/Engtieng-Ourn-Resume.pdf" download>Résumé ↓</a>
+        </div>
+      </nav>
 
-    <section id="hero">
-      <span class="star">✦ ✦ ✦</span>
-      <h1 id="hero-name"></h1>
-      <div class="intro">
-        <p>I'm also known as ET. I'm interested in combining CS and Economics to 
-          solve real-world problems via UI design, mobile apps, and AI. </p>
-      </div>
-      <div class="school">
-        <p>CS + Economics @ Grinnell College</p>
-      </div>
-      <div class="hero-buttons">
-  <a href="#projects" class="btn-primary">See my work</a>
-  <a href="#contact" class="btn-secondary">Get in touch</a>
-</div>
-    </section>
+      <section id="hero" class="hero" aria-label="Introduction">
+        <div class="hero-full">
+          <div class="hero-art">
+            <div class="frame">
+              <svg class="frame-sketch" viewBox="0 0 400 480" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="graph-paper" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M20 0H0V20" fill="none" stroke="#3E5566" stroke-width="0.6" />
+                  </pattern>
+                </defs>
+                <path class="frame-grid" fill="url(#graph-paper)" d="M14 18C120 12 260 21 386 14C390 140 383 330 388 466C270 471 130 462 12 468C17 330 10 150 14 18Z" />
+                <path class="draw frame-line" pathLength="1" d="M14 18C120 12 260 21 386 14C390 140 383 330 388 466C270 471 130 462 12 468C17 330 10 150 14 18Z" />
+                <g class="frame-overshoot">
+                  <path class="draw" pathLength="1" d="M3 23C40 20 70 18 96 17" />
+                  <path class="draw" pathLength="1" d="M382 3C384 30 385 52 386 74" />
+                  <path class="draw" pathLength="1" d="M392 420C390 440 391 460 390 477" />
+                  <path class="draw" pathLength="1" d="M2 470C30 468 58 469 84 466" />
+                  <path class="draw" pathLength="1" d="M300 11C330 13 360 10 396 12" />
+                </g>
+              </svg>
+
+              <div class="portrait-clip">
+                <img class="portrait" src="assets/et-portrait.gif" width="480" height="480"
+                  alt="Hand-drawn animated portrait of Engtieng: shoulder-length dark hair, glasses, a warm smile and a burgundy jacket." />
+              </div>
+
+              <span class="tape" aria-hidden="true"></span>
+
+              <span class="sticker sticker--draws">draws things</span>
+              <span class="sticker sticker--ships">ships things</span>
+              <span class="sticker sticker--teaches">teaches kids to code</span>
+
+              <svg class="stamp stamp--budapest" viewBox="0 0 100 100" role="img" aria-label="Passport stamp: Budapest">
+                <defs><path id="ring-bud" d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0" /></defs>
+                <circle cx="50" cy="50" r="47" class="stamp-dash" />
+                <circle cx="50" cy="50" r="28" class="stamp-inner" />
+                <text class="stamp-ring"><textPath href="#ring-bud">BUDAPEST • HUNGARY •</textPath></text>
+                <text x="50" y="56" class="stamp-core">HU</text>
+              </svg>
+              <svg class="stamp stamp--phnompenh" viewBox="0 0 100 100" role="img" aria-label="Passport stamp: Phnom Penh">
+                <defs><path id="ring-pp" d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0" /></defs>
+                <circle cx="50" cy="50" r="47" class="stamp-dash" />
+                <circle cx="50" cy="50" r="28" class="stamp-inner" />
+                <text class="stamp-ring"><textPath href="#ring-pp">PHNOM PENH • CAMBODIA •</textPath></text>
+                <text x="50" y="56" class="stamp-core">KH</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="hero-copy">
+            <p class="hello">
+              <span class="hello-en">hi there, I'm</span>
+              <span class="hello-km" lang="km" aria-hidden="true">ជំរាបសួរ — I'm</span>
+            </p>
+            <h1 class="hero-name"><span>Engtieng</span> <span>Ourn</span></h1>
+            <div class="hero-row">
+              <p class="hero-lede">I turn fuzzy user problems into products people actually use. CS + Econ at Grinnell, open to APM, UX &amp; frontend roles.</p>
+              <a class="btn-work" href="#work">See my work →</a>
+            </div>
+            <svg class="pencil-line" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path class="draw" pathLength="1" d="M2 9C80 5 150 11 230 8S380 4 450 9 560 7 598 6" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero-skim">
+          <h1 class="skim-name">Engtieng Ourn (ET)</h1>
+          <p>CS + Econ at Grinnell. I turn fuzzy user problems into products people actually use. Open to APM, UX &amp; frontend roles.</p>
+          <ul class="skim-links">
+            <li><a href="mailto:ournengt@grinnell.edu">ournengt@grinnell.edu</a></li>
+            <li><a href="https://www.linkedin.com/in/engtieng-ourn-0a654a230/">LinkedIn</a></li>
+            <li><a href="https://github.com/etourn">GitHub</a></li>
+            <li><a href="assets/Engtieng-Ourn-Resume.pdf" download>Résumé (PDF)</a></li>
+          </ul>
+        </div>
+      </section>
+    </header>
 
     <section id="about">
   <h2>About</h2>
@@ -110,6 +186,7 @@
 
     </section>
 
+    <span id="work"></span>
     <section id="projects">
   <h2>Projects</h2>
 
