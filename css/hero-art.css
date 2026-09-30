@@ -1,0 +1,212 @@
+/* Nav + hero, part 2 of 4 — load after nav.css */
+
+/* ---------- Hero ---------- */
+
+#hero {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px clamp(16px, 5.5vw, 80px) 96px;
+  border-bottom: 0;
+  overflow-x: clip;
+}
+
+.hero-full {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+/* Left column: sketched frame + portrait + stickers */
+
+.hero-art {
+  display: flex;
+  justify-content: center;
+  /* extra room on the right for the "ships things" overhang */
+  padding: 72px 18% 64px 11%;
+}
+
+.frame {
+  position: relative;
+  width: min(100%, 430px);
+  aspect-ratio: 4 / 5;
+  container-type: inline-size;
+}
+
+.frame-sketch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.frame-grid {
+  opacity: 0.2;
+}
+
+.frame-sketch .draw {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.frame-line {
+  stroke-width: 3;
+}
+
+.frame-overshoot {
+  opacity: 0.4;
+}
+
+.frame-overshoot .draw {
+  stroke-width: 1.5;
+}
+
+/* Clips only below the frame's bottom line, so the tilt never pokes through.
+   The GIF has lots of empty space, so it's scaled up until the figure fills the frame. */
+.portrait-clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 1.2%;
+  clip-path: inset(-60% -60% 0 -60%);
+}
+
+.portrait {
+  position: absolute;
+  bottom: 0;
+  left: -24%;
+  display: block;
+  width: 143%;
+  max-width: none;
+  height: auto;
+  transform-origin: 50% 100%;
+  transition: rotate 0.3s var(--spring);
+}
+
+.tape {
+  position: absolute;
+  z-index: 1;
+  top: -4.5%;
+  left: 19%;
+  width: 33%;
+  height: 8%;
+  rotate: -3deg;
+  background: rgba(244, 182, 63, 0.8);
+  clip-path: polygon(0 10%, 3% 0, 97% 8%, 100% 0, 98% 50%, 100% 100%, 3% 92%, 0 100%, 2% 50%);
+}
+
+.sticker {
+  --r: 0deg;
+  position: absolute;
+  z-index: 2;
+  padding: 0.45em 0.8em;
+  border: 5px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px var(--ink), 0 4px 0 rgba(30, 42, 94, 0.12);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: clamp(13px, 5.6cqi, 24px);
+  line-height: 1.2;
+  white-space: nowrap;
+  rotate: var(--r);
+  transition: rotate 0.2s var(--spring), translate 0.2s var(--spring);
+}
+
+.sticker--draws {
+  --r: -6deg;
+  top: 43%;
+  left: -15%;
+  background: var(--marigold);
+}
+
+.sticker--ships {
+  --r: -8deg;
+  top: 50%;
+  right: -22%;
+  padding: 0.55em 1em;
+  border-radius: 999px;
+  background: var(--burgundy);
+  color: var(--paper);
+}
+
+.sticker--teaches {
+  --r: 4deg;
+  bottom: -7.5%;
+  left: -11%;
+  border-radius: 10px;
+  background: var(--sky);
+  font-size: clamp(12px, 4.7cqi, 20px);
+}
+
+.stamp {
+  position: absolute;
+  z-index: 1;
+  width: 23.5%;
+  height: auto;
+  overflow: visible;
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+}
+
+.stamp--budapest {
+  top: -10%;
+  right: -15.5%;
+  rotate: 12deg;
+  color: var(--burgundy);
+}
+
+.stamp--phnompenh {
+  bottom: -10%;
+  right: -12.5%;
+  rotate: -12deg;
+  color: var(--ink);
+}
+
+.stamp-dash {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-dasharray: 4 3;
+}
+
+.stamp-inner {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.stamp-city {
+  fill: currentColor;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.stamp-city--long {
+  font-size: 10px;
+}
+
+.stamp-meta {
+  fill: currentColor;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-anchor: middle;
+}
+
+@media (hover: hover) {
+  .sticker:hover {
+    rotate: calc(var(--r) * 0.25);
+    translate: 0 -4px;
+  }
+
+  .portrait:hover {
+    rotate: -3deg;
+  }
+}

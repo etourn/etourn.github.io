@@ -1,0 +1,144 @@
+/* Nav + hero, part 4 of 4 — load last so these override earlier rules */
+
+/* ---------- Load-in: draw the pencil, then pop the stickers (once) ---------- */
+
+.site-top .draw {
+  stroke-dasharray: 1;
+  animation: draw 0.55s ease-out both;
+}
+
+.frame-overshoot .draw {
+  animation-duration: 0.3s;
+  animation-delay: 0.35s;
+}
+
+.pencil-line .draw {
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
+}
+
+.frame-grid {
+  animation: fade-in 0.4s ease-out 0.1s both;
+}
+
+.tape {
+  animation: fade-in 0.25s ease-out 0.45s both;
+}
+
+.sticker,
+.stamp {
+  animation: pop-in 0.28s var(--spring) both;
+}
+
+.sticker--draws { animation-delay: 0.55s; }
+.stamp--budapest { animation-delay: 0.6s; }
+.sticker--ships { animation-delay: 0.62s; }
+.sticker--teaches { animation-delay: 0.69s; }
+.stamp--phnompenh { animation-delay: 0.7s; }
+
+/* After the first skim-mode toggle, don't replay the intro when the hero reappears */
+.hero.is-settled * {
+  animation: none !important;
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 1; opacity: 0; }
+  10% { opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; scale: 0.6; }
+  70% { opacity: 1; scale: 1.06; }
+  to { scale: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-top *,
+  .site-top *::before,
+  .site-top *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sticker:hover,
+  .portrait:hover,
+  .btn-work:hover {
+    rotate: var(--r, 0deg);
+    translate: none;
+  }
+}
+
+/* ---------- Tablet & phone: one column, portrait first ---------- */
+
+@media (max-width: 1099px) {
+  .hero-full {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .hero-art {
+    padding: 56px 0 56px;
+  }
+
+  .frame {
+    width: min(calc(100% - 64px), 380px);
+  }
+}
+
+@media (max-width: 720px) {
+  .topnav {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand actions"
+      "links links";
+    row-gap: 4px;
+    padding: 12px 16px;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .pill {
+    padding: 0 14px;
+  }
+
+  #hero {
+    padding: 8px 16px 56px;
+  }
+
+  .sticker--draws { left: -8%; }
+  .sticker--ships { right: -12%; }
+  .sticker--teaches { left: -6%; }
+  .stamp--budapest { right: -9%; }
+  .stamp--phnompenh { right: -8%; }
+
+  .hero-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .hello-en {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

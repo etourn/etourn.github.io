@@ -13,68 +13,6 @@ body {
   animation: fadeIn 0.8s ease;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1.2rem 2rem;
-  border-bottom: 2px solid #333;
-}
-
-nav a {
-  font-size: 0.9rem;
-  color: #F5F0E8;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-nav a:hover {
-  color: #7B8CDE;
-}
-
-#hero {
-  background-color: #F5F0E8;
-  background-image: 
-    linear-gradient(#C5BAE8 1px, transparent 1px),
-    linear-gradient(90deg, #C5BAE8 1px, transparent 1px);
-  background-size: 28px 28px;
-  max-width: 750px;
-  margin: 3rem auto;
-  border-radius: 12px;
-  padding: 5rem 3rem 4rem;
-  text-align: left;
-  border: 3px solid #7B8CDE;
-  box-shadow: 8px 8px 0px #7B8CDE;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-start;
-  margin-top: 2rem;
-}
-
-#hero h1 {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(2rem, 7.5vw, 4.5rem);
-  font-weight: 700;
-  color: #7B8CDE;
-  margin-bottom: 1rem;
-  min-height: 1.2em;
-}
-
-#hero p {
-  font-size: 1rem;
-  color: #3D3D5C;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
-.intro strong {
-  font-weight: 600;
-}
-
 p strong{
   font-weight: 600;
 }
@@ -205,42 +143,6 @@ p {
   object-fit: cover;
 }
 
-.btn-primary {
-  background: rgba(231, 93, 93, 0.15);
-  color: #7B8CDE;
-  padding: 0.9rem 2rem;
-  border-radius: 100px;
-  border: 2px solid #7B8CDE;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-}
-
-.btn-primary:hover {
-  background: rgba(231, 93, 93, 0.3);
-  transform: translateY(-3px);
-}
-
-.btn-secondary {
-  background: rgba(44, 62, 107, 0.1);
-  color: #7B8CDE;
-  padding: 0.9rem 2rem;
-  border-radius: 100px;
-  border: 2px solid #7B8CDE;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-}
-
-.btn-secondary:hover {
-  background: rgba(44, 62, 107, 0.2);
-  transform: translateY(-3px);
-}
-
 .skill-group {
   margin-bottom: 1.5rem;
 }
@@ -299,12 +201,4 @@ p {
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
-}
-
-.star {
-  color: #7B8CDE;
-  font-size: 1rem;
-  letter-spacing: 1.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
 }
