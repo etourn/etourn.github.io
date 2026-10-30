@@ -18,14 +18,14 @@
 .hello-en {
   font-family: var(--font-hand);
   font-weight: 500;
-  font-size: 38px;
+  font-size: 32px;
   line-height: 1.1;
 }
 
 .hello-km {
   font-family: var(--font-khmer);
   font-weight: 500;
-  font-size: 24px;
+  font-size: 21px;
   opacity: 0;
 }
 
@@ -37,42 +37,50 @@
   opacity: 1;
 }
 
+/* Sized so "Engtieng Ourn" always fits on one line */
 .hero-name {
-  margin: 0 0 40px;
+  margin: 0 0 16px;
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.625rem, 1.6rem + 8.4vw, 8rem);
-  line-height: 0.9;
+  font-size: clamp(2.15rem, 1rem + 3.2vw, 3.5rem);
+  line-height: 1;
   letter-spacing: -0.035em;
 }
 
-.hero-name span {
-  display: block;
+/* Handwritten lead-in + bold roles: the sketchbook-meets-product mix.
+   Scoped to .hero-copy so it outranks the `.site-top p` reset. */
+.hero-copy .hero-roles {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.375rem, 1rem + 1.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-.hero-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 590px;
-  gap: 24px 40px;
+.roles-lead {
+  margin-right: 0.15em;
+  color: var(--burgundy);
+  font-family: var(--font-hand);
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 0;
 }
 
-.hero-lede {
-  max-width: 17.5em;
-  font-size: 20px;
+.hero-roles .dot,
+.hero-status .dot {
+  color: var(--burgundy);
+}
+
+.hero-copy .hero-status {
+  margin-bottom: 28px;
+  font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
   line-height: 1.5;
 }
 
-.hero-lede strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .btn-work {
-  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   min-height: 56px;

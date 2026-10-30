@@ -81,11 +81,11 @@
   }
 
   .hero-art {
-    padding: 56px 0 56px;
+    padding: 32px 0 48px;
   }
 
   .frame {
-    width: min(calc(100% - 64px), 380px);
+    width: min(calc(100% - 48px), 440px);
   }
 }
 
@@ -121,14 +121,8 @@
   .stamp--budapest { right: -9%; }
   .stamp--phnompenh { right: -8%; }
 
-  .hero-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-
   .hello-en {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 

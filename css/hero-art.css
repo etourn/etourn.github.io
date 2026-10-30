@@ -3,16 +3,16 @@
 /* ---------- Hero ---------- */
 
 #hero {
-  max-width: 1440px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 48px clamp(16px, 5.5vw, 80px) 96px;
+  padding: 24px clamp(16px, 5.5vw, 80px) 80px;
   border-bottom: 0;
   overflow-x: clip;
 }
 
 .hero-full {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   align-items: center;
   gap: 56px;
 }
@@ -22,13 +22,13 @@
 .hero-art {
   display: flex;
   justify-content: center;
-  /* extra room on the right for the "ships things" overhang */
-  padding: 72px 18% 64px 11%;
+  /* side room for the stamps (and stickers) that overhang the frame */
+  padding: 40px 8% 56px;
 }
 
 .frame {
   position: relative;
-  width: min(100%, 430px);
+  width: min(100%, 520px);
   aspect-ratio: 4 / 5;
   container-type: inline-size;
 }
