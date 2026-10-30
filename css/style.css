@@ -41,7 +41,7 @@ section {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #7B8CDE;
   margin-bottom: 1.5rem;
@@ -83,7 +83,7 @@ p {
 }
 
 .tech {
-  color: #9AA5B4;
+  color: #5B6577;
   font-size: 0.9rem;
   font-weight: 600;
   font-style: italic;
@@ -173,7 +173,7 @@ p {
 
 .tag.learning {
   border-style: dashed;
-  color: #9AA5B4;
+  color: #5B6577;
 }
 
 .contact-links {

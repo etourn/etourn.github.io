@@ -1,0 +1,290 @@
+/* ==========================================================
+   Work — the interactive "workstation" desk illustration.
+   Every object layer shares the base's canvas, so inset: 0 stacks
+   them exactly. Hotspot coordinates are % of the canvas.
+   ========================================================== */
+
+.workstation {
+  /* Break out of the 900px section, but keep a 16px gutter on phones */
+  --w: min(1200px, 100vw - 32px);
+  width: var(--w);
+  margin: 0 0 2.5rem calc((100% - var(--w)) / 2);
+  padding: clamp(8px, 1.5vw, 20px);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+}
+
+.desk {
+  position: relative;
+  aspect-ratio: 2000 / 1533;
+  container-type: inline-size;
+  background: #F2C79C; /* desk colour while the lazy images load */
+}
+
+.desk-base,
+.desk-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.desk-base img,
+.desk-layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.desk-layer {
+  pointer-events: none;
+  transform-origin: var(--ox) var(--oy);
+  transition: transform 220ms var(--spring), filter 220ms ease;
+}
+
+.desk-layer--phone    { --ox: 28%; --oy: 54%; --tilt: -1.5deg; }
+.desk-layer--notebook { --ox: 84%; --oy: 80%; --tilt: 1.5deg; }
+.desk-layer--matcha   { --ox: 7%;  --oy: 25%; --tilt: -2deg; }
+
+/* ---------- hotspots ---------- */
+
+.hotspot {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.hotspot:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.hotspot--phone    { left: 19.5%; top: 40%; width: 17%; height: 28%; }
+.hotspot--notebook { left: 68%;   top: 59%; width: 32%; height: 41%; }
+.hotspot--matcha   { left: 0;     top: 15%; width: 14%; height: 18%; }
+.hotspot--egg      { left: 26%;   top: 0;   width: 42%; height: 25%; }
+
+.hotspot-label {
+  position: absolute;
+  padding: 0 0.35em;
+  background: var(--paper);
+  border-radius: 3px;
+  color: var(--burgundy);
+  font-family: var(--font-hand);
+  font-size: clamp(1.1rem, 2.2cqi, 1.6rem);
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px) rotate(-2deg);
+  transition: opacity 180ms ease, transform 220ms var(--spring);
+}
+
+.hotspot--phone .hotspot-label    { left: calc(100% + 4px); top: 12%; }
+.hotspot--notebook .hotspot-label { left: 6%; top: 6%; }
+.hotspot--matcha .hotspot-label   { left: calc(100% + 4px); top: 28%; }
+
+/* Active = keyboard focus, tap-and-hold (.is-peek), open matcha card, or hover on real pointers */
+.hotspot:is(:focus-visible, .is-peek, [aria-expanded="true"]) .hotspot-label {
+  opacity: 1;
+  transform: rotate(-2deg);
+}
+
+.hotspot:is(:focus-visible, .is-peek, [aria-expanded="true"]) + .desk-layer {
+  transform: translateY(-8px) rotate(var(--tilt));
+  filter: drop-shadow(0 10px 8px rgb(30 42 94 / 0.25));
+}
+
+@media (hover: hover) {
+  .hotspot:hover .hotspot-label {
+    opacity: 1;
+    transform: rotate(-2deg);
+  }
+
+  .hotspot:hover + .desk-layer {
+    transform: translateY(-8px) rotate(var(--tilt));
+    filter: drop-shadow(0 10px 8px rgb(30 42 94 / 0.25));
+  }
+}
+
+/* Narrow illustration: no hover to discover things, so keep the labels up */
+@container (max-width: 600px) {
+  .hotspot-label {
+    opacity: 1;
+    font-size: 0.95rem;
+    transform: rotate(-2deg);
+  }
+}
+
+/* ---------- matcha card ---------- */
+
+.matcha-card {
+  position: absolute;
+  z-index: 3;
+  left: 3%;
+  top: 35%;
+  max-width: min(60%, 24ch);
+  padding: 0.5em 0.8em;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 var(--ink);
+  color: var(--ink);
+  font-family: var(--font-hand);
+  font-size: clamp(1.1rem, 2.4cqi, 1.6rem);
+  line-height: 1.2;
+  transform: rotate(-2deg);
+}
+
+/* ---------- hint ---------- */
+
+.desk-hint {
+  margin-top: 0.6rem;
+  color: var(--graphite);
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+/* ---------- sketch lightbox ---------- */
+
+.sketch-dialog {
+  width: min(900px, 100vw - 32px);
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.sketch-dialog::backdrop {
+  background: rgb(15 15 26 / 0.75);
+}
+
+.sketch-sheet {
+  padding: clamp(12px, 2vw, 24px);
+}
+
+.sketch-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sketch-title {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--burgundy);
+}
+
+.sketch-close,
+.sketch-arrow {
+  min-width: 44px;
+  min-height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.sketch-close:hover,
+.sketch-arrow:hover {
+  background: var(--sky);
+}
+
+.sketch-close:focus-visible,
+.sketch-arrow:focus-visible,
+.sketch-track:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.sketch-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.sketch-track::-webkit-scrollbar {
+  display: none;
+}
+
+.sketch-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  scroll-snap-align: start;
+}
+
+.sketch-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.sketch-count {
+  margin: 0;
+  color: var(--graphite);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+}
+
+/* ---------- reduced motion: no lift, just the label and an outline ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-layer,
+  .hotspot-label {
+    transition: none;
+  }
+
+  .hotspot-label,
+  .hotspot:is(:focus-visible, .is-peek, [aria-expanded="true"]) .hotspot-label {
+    transform: none;
+  }
+
+  .hotspot:is(:focus-visible, .is-peek, [aria-expanded="true"]) + .desk-layer {
+    transform: none;
+    filter: none;
+  }
+
+  .hotspot:not(.hotspot--egg):is(.is-peek, [aria-expanded="true"]) {
+    outline: 2px dashed var(--ink);
+    outline-offset: 3px;
+  }
+
+  @media (hover: hover) {
+    .hotspot:hover .hotspot-label {
+      transform: none;
+    }
+
+    .hotspot:hover + .desk-layer {
+      transform: none;
+      filter: none;
+    }
+
+    .hotspot:not(.hotspot--egg):hover {
+      outline: 2px dashed var(--ink);
+      outline-offset: 3px;
+    }
+  }
+}

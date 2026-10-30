@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/hero-art.css" />
     <link rel="stylesheet" href="css/hero-copy.css" />
     <link rel="stylesheet" href="css/hero-motion.css" />
+    <link rel="stylesheet" href="css/workstation.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ET — CS & Economics</title>
@@ -47,13 +48,6 @@
                 </defs>
                 <path class="frame-grid" fill="url(#graph-paper)" d="M10 14C130 12 260 8 384 4C388 160 392 330 398 492C270 492 140 494 12 496C9 330 11 160 10 14Z" />
                 <path class="draw frame-line" pathLength="1" d="M10 14C130 12 260 8 384 4C388 160 392 330 398 492C270 492 140 494 12 496C9 330 11 160 10 14Z" />
-                <g class="frame-overshoot">
-                  <path class="draw" pathLength="1" d="M-2 16C30 15 60 14 92 13" />
-                  <path class="draw" pathLength="1" d="M300 9C330 7 360 5 394 2" />
-                  <path class="draw" pathLength="1" d="M381 -6C384 20 385 44 387 70" />
-                  <path class="draw" pathLength="1" d="M400 452C401 474 401 492 400 508" />
-                  <path class="draw" pathLength="1" d="M-1 497C30 496 60 496 90 495" />
-                </g>
               </svg>
 
               <div class="portrait-clip">
@@ -61,11 +55,11 @@
                   alt="Hand-drawn animated portrait of Engtieng: shoulder-length dark hair, glasses, a warm smile and a burgundy jacket." />
               </div>
 
-              <span class="tape" aria-hidden="true"></span>
+              <!-- <span class="tape" aria-hidden="true"></span> -->
 
-              <span class="sticker sticker--draws">draws things</span>
+              <!-- <span class="sticker sticker--draws">draws things</span>
               <span class="sticker sticker--ships">Problem solver</span>
-              <span class="sticker sticker--teaches">teaches kids to code</span>
+              <span class="sticker sticker--teaches">teaches kids to code</span> -->
 
               <svg class="stamp stamp--budapest" viewBox="0 0 100 100" role="img" aria-label="Passport stamp: Budapest, 2026">
                 <circle cx="50" cy="50" r="47" class="stamp-dash" />
@@ -79,6 +73,12 @@
                 <text x="50" y="51" class="stamp-city stamp-city--long">PHNOM PENH</text>
                 <text x="50" y="65" class="stamp-meta">KH · 2026</text>
               </svg>
+              <svg class="stamp stamp--grinnell" viewBox="0 0 100 100" role="img" aria-label="Passport stamp: Grinnell, 2026">
+                <circle cx="50" cy="50" r="47" class="stamp-dash" />
+                <circle cx="50" cy="50" r="41" class="stamp-inner" />
+                <text x="50" y="51" class="stamp-city stamp-city--long">GRINNELL</text>
+                <text x="50" y="65" class="stamp-meta">IA · 2026</text>
+              </svg>
             </div>
           </div>
 
@@ -87,11 +87,10 @@
               <span class="hello-en">hi there, I'm</span>
               <span class="hello-km" lang="km" aria-hidden="true">ជំរាបសួរ — I'm</span>
             </p>
-            <h1 class="hero-name"><span>Engtieng</span> <span>Ourn</span></h1>
-            <div class="hero-row">
-              <p class="hero-lede">I turn fuzzy user problems into products people actually use. CS + Econ at Grinnell, open to <strong>APM, UX &amp; frontend</strong> roles.</p>
-              <a class="btn-work" href="#work">See my work →</a>
-            </div>
+            <h1 class="hero-name">Engtieng Ourn</h1>
+            <p class="hero-roles"><span class="roles-lead">open to</span> APM <span class="dot">·</span> UX <span class="dot">·</span> Frontend</p>
+            <p class="hero-status">CS + Economics student <span class="dot">•</span> Grinnell College</p>
+            <a class="btn-work" href="#work">See my work →</a>
             <svg class="pencil-line" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true" focusable="false">
               <path class="draw" pathLength="1" d="M2 9C80 5 150 11 230 8S380 4 450 9 560 7 598 6" />
             </svg>
@@ -192,6 +191,69 @@
     <section id="projects">
   <h2>Projects</h2>
 
+  <figure class="workstation">
+    <div class="desk">
+      <picture class="desk-base">
+        <source type="image/webp" srcset="assets/desk/desk-base-1000.webp 1000w, assets/desk/desk-base-2000.webp 2000w" sizes="(max-width: 1232px) calc(100vw - 48px), 1160px" />
+        <img src="assets/desk/desk-base.png" width="2000" height="1533" loading="lazy" decoding="async"
+          alt="Illustrated desk with my laptop showing this site, a phone running PharmaSnap, a notebook, headphones and a cup of matcha." />
+      </picture>
+
+      <!-- Each hotspot is followed by its object layer (same canvas as the base), which lifts on hover/focus -->
+      <!-- TODO: add the PharmaSnap case study with id="pharmasnap"; until then this link has nowhere to land -->
+      <a class="hotspot hotspot--phone" href="#pharmasnap" aria-label="Open the PharmaSnap case study">
+        <span class="hotspot-label" aria-hidden="true">PharmaSnap →</span>
+      </a>
+      <picture class="desk-layer desk-layer--phone">
+        <source type="image/webp" srcset="assets/desk/desk-phone-1000.webp 1000w, assets/desk/desk-phone-2000.webp 2000w" sizes="(max-width: 1232px) calc(100vw - 48px), 1160px" />
+        <img src="assets/desk/desk-phone.png" width="2000" height="1533" loading="lazy" decoding="async" alt="" />
+      </picture>
+
+      <button type="button" class="hotspot hotspot--notebook" aria-label="See my sketches and process" aria-haspopup="dialog">
+        <span class="hotspot-label" aria-hidden="true">my sketches</span>
+      </button>
+      <picture class="desk-layer desk-layer--notebook">
+        <source type="image/webp" srcset="assets/desk/desk-notebook-1000.webp 1000w, assets/desk/desk-notebook-2000.webp 2000w" sizes="(max-width: 1232px) calc(100vw - 48px), 1160px" />
+        <img src="assets/desk/desk-notebook.png" width="2000" height="1533" loading="lazy" decoding="async" alt="" />
+      </picture>
+
+      <button type="button" class="hotspot hotspot--matcha" aria-label="What I'm drinking right now" aria-expanded="false" aria-controls="matcha-card">
+        <span class="hotspot-label" aria-hidden="true">☕?</span>
+      </button>
+      <picture class="desk-layer desk-layer--matcha">
+        <source type="image/webp" srcset="assets/desk/desk-matcha-1000.webp 1000w, assets/desk/desk-matcha-2000.webp 2000w" sizes="(max-width: 1232px) calc(100vw - 48px), 1160px" />
+        <img src="assets/desk/desk-matcha.png" width="2000" height="1533" loading="lazy" decoding="async" alt="" />
+      </picture>
+      <!-- TODO: keep your matcha order current -->
+      <div id="matcha-card" class="matcha-card" hidden>currently drinking: Ice matcha latte (less sweet)</div>
+
+      <!-- Easter egg: the laptop screen goes back to the top (no label on purpose) -->
+      <button type="button" class="hotspot hotspot--egg" aria-label="Back to top"></button>
+    </div>
+    <figcaption class="desk-hint">psst, some things on my desk are clickable</figcaption>
+  </figure>
+
+  <dialog id="sketch-dialog" class="sketch-dialog" aria-labelledby="sketch-title">
+    <div class="sketch-sheet">
+      <div class="sketch-head">
+        <h3 id="sketch-title" class="sketch-title">sketches &amp; process</h3>
+        <button type="button" class="sketch-close" aria-label="Close sketches">✕</button>
+      </div>
+      <!-- TODO: swap these placeholders for real process sketches in assets/desk/sketches/, with real alt text -->
+      <div class="sketch-track" role="region" aria-label="Sketches" tabindex="0">
+        <img class="sketch-slide" src="assets/desk/sketches/sketch-1.webp" width="1200" height="900" loading="lazy" alt="Placeholder sketch 1" />
+        <img class="sketch-slide" src="assets/desk/sketches/sketch-2.webp" width="1200" height="900" loading="lazy" alt="Placeholder sketch 2" />
+        <img class="sketch-slide" src="assets/desk/sketches/sketch-3.webp" width="1200" height="900" loading="lazy" alt="Placeholder sketch 3" />
+        <img class="sketch-slide" src="assets/desk/sketches/sketch-4.webp" width="1200" height="900" loading="lazy" alt="Placeholder sketch 4" />
+      </div>
+      <div class="sketch-nav">
+        <button type="button" class="sketch-arrow" data-step="-1" aria-label="Previous sketch">←</button>
+        <p class="sketch-count" aria-live="polite">1 / 4</p>
+        <button type="button" class="sketch-arrow" data-step="1" aria-label="Next sketch">→</button>
+      </div>
+    </div>
+  </dialog>
+
   <div class="project-item">
     <h3 class="project-title">Multiplayer Connect Four</h3>
     <span class="tech">C · TCP/IP · Sockets</span>
@@ -201,7 +263,8 @@
     <div class="project-images" data-link="https://youtu.be/qdb0qa-k6gI">
       <img 
       src="assets/screen.png"
-      class="project-image">
+      class="project-image"
+      alt="Two terminal windows running Networked Connect Four side by side, each showing the same board on Player 1's turn next to the game rules.">
     </div>
   </div>
 
